@@ -1,0 +1,25 @@
+{{#each articles}}
+    <h2>{{this.headline}}</h2>
+    <a href="{{this.link}}">{{this.link}}</a>
+    <p>{{this.summary}}</p>
+    <form action="/save-article" method="post">
+        <input type="hidden" name="headline" value="{{this.headline}}">
+        <input type="hidden" name="link" value="{{this.link}}">
+        <input type="hidden" name="summary" value="{{this.summary}}">
+        <input type="submit" value="Save Article">
+    </form>
+
+{{/each}}
+
+<script>
+    document.addEventListener("DOMContentLoaded", init);
+    function init(){
+        Array.from(document.querySelectorAll("main input[type='submit']")).forEach(function(button){
+            button.addEventListener("click", function(){
+                this.value="Saved";
+                this.setAttribute("disabled", true);
+                this.parentElement.submit();
+            });
+        });
+    }
+</script>

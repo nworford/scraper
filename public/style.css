@@ -1,6 +1,61 @@
-.button {
-    color: blue;
+
+html, body {
+    margin:0;
+    padding:0;
+
 }
-/* body {
-    background-color:blue;
-} */
+
+header {
+    background:linear-gradient(lightblue,whitesmoke);
+    text-align:center;
+}
+
+header h1, header h2 {
+    margin:0;
+    padding:0;
+}
+
+header form {
+    display:inline-block;
+
+}
+
+form input[type="submit"] {
+    background-color: darkblue;
+    padding:5px 10px;
+    border-radius: 10px;
+    color:white;
+}
+
+header form input:hover {
+    background-color:black;
+}
+
+main#home {
+    background-image: url("./img/nyt.jpg");
+    background-size: cover;
+    min-height: 80vh;
+}
+
+article {
+    padding:10px;
+    border:1px solid darkblue;
+    border-left:6px solid darkblue;
+    margin:10px;
+    background-color:lightsalmon;
+}
+
+article h2 {
+
+}
+
+footer {
+    background-color:darkblue;
+    color:white;
+    text-align: center;
+    padding:12px;
+}
+
+
+
+

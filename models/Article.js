@@ -1,24 +1,24 @@
 var mongoose = require("mongoose");
-var db = mongoose.createConnection("localhost:27017", "chengdu");
-db.on("error", console.log);
+// var db = mongoose.createConnection("localhost:27017", "chengdu");
+// db.on("error", console.log);
 var Schema = mongoose.Schema;
 
 
 var ArticleSchema = new Schema({
 
     headline: {
-        type:String,
-        required:true
+        type:String
+        // required:true
     },
 
     summary: {
-        type:String,
-        required:true
+        type:String
+        // required:true
     },
 
     link: {
-        type:String,
-        required:true
+        type:String
+        // required:true
     },
 
     id: {
@@ -26,5 +26,5 @@ var ArticleSchema = new Schema({
         required:true
     }
 });
-var Article = db.model("Article", ArticleSchema);
+var Article = mongoose.model("Article", ArticleSchema);
 module.exports = Article;

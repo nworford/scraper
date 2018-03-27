@@ -1,13 +1,13 @@
 var express = require("express");
-// var uuid = require("uuid/v4");
+var uuid = require("uuid/v4");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
-// var cheerio = require("cheerio");
+var cheerio = require("cheerio");
 var request = require("request");
-
+var exphbs  = require('express-handlebars');
 var app = express();
 
-var db = require("./models");
+var db = require("../models");
 
 app.enable('view cache');
 

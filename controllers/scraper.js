@@ -1,22 +1,22 @@
-// var express = require("express");
-// // var uuid = require("uuid/v4");
-// var mongoose = require("mongoose");
-// var bodyParser = require("body-parser");
-// // var cheerio = require("cheerio");
-// var request = require("request");
+var express = require("express");
+// var uuid = require("uuid/v4");
+var mongoose = require("mongoose");
+var bodyParser = require("body-parser");
+// var cheerio = require("cheerio");
+var request = require("request");
 
-// var app = express();
+var app = express();
 
-// var db = require("./models");
+var db = require("./models");
 
-// app.enable('view cache');
+app.enable('view cache');
 
-// var hbs = exphbs.create({
-//     defaultLayout: "main"
-//  });
+var hbs = exphbs.create({
+    defaultLayout: "main"
+ });
 
-// app.engine('handlebars', hbs.engine);
-// app.set('view engine', 'handlebars');
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 var Article = require("../models/Article.js");
 var Note = require("../models/Note.js");
 

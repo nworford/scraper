@@ -9,6 +9,7 @@ var app = express();
 
 var db = require("../models");
 
+
 app.enable('view cache');
 
 var hbs = exphbs.create({
@@ -31,18 +32,21 @@ app.get("/", function(req, res){
 app.post("/save-article", function(req, res){
     var article = {};
     article.id = uuid();
-    article.headline = req.body.headline;
-    article.link = req.body.link;
-    article.summary = req.body.summary;
+    // article.headline = req.body.headline;
+    // article.link = req.body.link;
+    // article.summary = req.body.summary;
     
+    // console.log("Request is ", req);
+    // console.log("Response is ", res);
     // db.insert(article);
     // console.log(article);
-    var saveArticle = new Article(article);
-    saveArticle.save(function(err){
-        if(err){
-            console.log(err);
-        }
-    });
+    // var saveArticle = new Article(article);
+    // saveArticle.save(function(err){
+    //     if(err){
+    //         console.log(err);
+    //     }
+       
+    // });
 });
 
 app.get("/scrape", function(req, res) {

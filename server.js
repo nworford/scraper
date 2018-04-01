@@ -10,7 +10,9 @@ var exphbs  = require('express-handlebars');
 
 var app = express();
 
-// require("./controllers/scraper.js")(app);
+var db = require("./models");
+
+require("./controllers/scraper.js")(app);
 
 app.enable('view cache');
 
@@ -90,28 +92,32 @@ app.get("/", function(req, res){
 });
 
 app.post("/save-article", function(req, res){
+
+    var db = mongoose.connection;
     var article = {};
     article.id = uuid();
     article.headline = req.body.headline;
     article.link = req.body.link;
     article.summary = req.body.summary;
     
-    // db.insert(article);
-    // console.log(article);
+    
+    // db.collection('articles').insert(article);
+    console.log("testing");
+
      Article.create(article)
      .then(function(dbArticle) {
         // View the added result in the console
-        console.log(dbArticle);
+        console.log("working");
       })
       .catch(function(err) {
         // If an error occurred, send it to the client
         return res.json(err);
       });
-    // saveArticle.save(function(err){
-    //     if(err){
-    //         console.log(err);
-    //     }
-    // });
+    saveArticle.save(function(err){
+        if(err){
+            console.log(err);
+        }
+    });
 });
 
 app.get("/scrape", function(req, res) {
@@ -136,6 +142,37 @@ app.get("/scrape", function(req, res) {
         res.render("new", {articles});
     });
 });
+
+app.get("/getsaved", function(req, res) {
+
+    var db = mongoose.connection;
+
+    var articles = db.collection('articles').find(articles.headline);
+
+    // console.log(articles);
+
+    res.render("saved", {articles});
+    //localhost:3000/scrape here
+    // request("https://www.nytimes.com/", function(error, response, body) {
+    //     if(error){
+    //         throw error;
+    //     }
+    //     var $ = cheerio.load(body);
+    //     var articles = [];
+    //     $("article h2.story-heading").each(function(i, el){
+    //         var article = {};
+    //         var a = $(this).find("a");
+    //         article.headline = $(a).text();
+    //         article.link = $(a).attr("href");
+    //         var p = $(this).siblings("p.summary").first();
+    //         article.summary = $(p).text();
+    //         articles.push(article);
+    //     })
+    //     // res.json(articles);
+    //     res.render("new", {articles});
+    // });
+});
+
 
 
 app.listen(PORT, function() {

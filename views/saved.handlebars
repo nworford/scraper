@@ -1,0 +1,18 @@
+
+<main id="new">
+
+    {{#each articles}}
+    <article>
+        <h2>{{this.headline}}</h2>
+        <a href="{{this.link}}">{{this.link}}</a>
+        <p>{{this.summary}}</p>
+        <form action="/save-article" method="post">
+            <input type="hidden" name="headline" value="{{this.headline}}">
+            <input type="hidden" name="link" value="{{this.link}}">
+            <input type="hidden" name="summary" value="{{this.summary}}">
+            <input type="submit" value="Note">
+        </form>
+    </article>
+
+    {{/each}}
+</main>

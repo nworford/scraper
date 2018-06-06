@@ -85,3 +85,7 @@ from David Hammond 
 April 14th, 10:26 am
 
 Very nice UI, I enjoyed the flow of it. Articles appeared to save fine in the UI but when I clicked saved articles, it gave me an internal server error. Only feature I was missing was the add comment feature. Otherwise all is working as expected! Good Work!
+
+FUTURE DEVELOPMENT:
+-Polish UI
+- Fix save route, and comment functioning
